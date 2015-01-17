@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="selector" ng-controller="AppCtrl">
+<html ng-app="selector">
   <head>
     <title>video-selector</title>
+    <meta charset='utf-8' >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
 
@@ -11,7 +11,40 @@
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
   </head>
   <body>
-    <div class="container" ui-view="main"></div>
+  <nav>
+    <div class="navbar navbar-default">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          <a>课程后台</a>
+          <small>v2.0</small>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" collapse="menuCollapsed">
+        <ul class="nav navbar-nav">
+          <li ui-sref-active="active">
+            <a>
+              <i class="ion-compose"></i>
+              章节编辑
+            </a>
+          </li>
+          <li ui-sref-active="active">
+            <a>
+              <i class="ion-arrow-swap"></i>
+              教材转换
+            </a>
+          </li>
+        </ul>
+        <!--<ul class="nav navbar-nav navbar-right">
+            <li style="display: inline!important; padding: 0px">
+                <a href="#/" style="display: inline-block!important; margin:1px!important;">首页</a>
+                <a style="color:#e5e5e5;display: inline-block!important; width: auto!important;"> > > </a>
+                <a href="#/" style="display: inline-block!important; margin:1px!important;">下一页</a>
+            </li>
+        </ul>-->
+      </div>
+    </div>
+    </nav>
+    <div class="container" ui-view></div>
 
     <footer class="footer">
       <div class="container">
@@ -22,7 +55,6 @@
             <li><a target="_blank" href="http://linkedin.com/in/joshdmiller"><i class="fa fa-linkedin-sign"></i></a></li>
             <li><a target="_blank" href="http://github.com/ngbp/ngbp"><i class="fa fa-github-sign"></i></a></li>
           </ul>
-          
 
           <p>
             (c) 2013 <a href="http://www.joshdavidmiller.com">Josh David Miller</a>. 

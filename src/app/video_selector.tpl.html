@@ -1,0 +1,45 @@
+<md-content class="md-whiteframe-z1" style="height:480px" layout="row" layout-align="space-between start" ng-init="init()">
+    <div flex="50"  layout="column" layout-margin>
+        <div layout="row" layout-align="start center" layout-margin>
+            <p>章节名称</p>
+            <span flex="10"></span>
+            <md-text-float label="Name" ng-model="chapter.name">{{chapter.name}}</md-text-float>
+        </div>
+
+        <div layout="row" layout-align="start center" layout-margin>
+            <p>片尾时长</p>
+            <span flex="10"></span>
+            <md-text-float label="秒" ng-model="chapter.video.pianweishichang">{{chapter.video.pianweishichang}}</md-text-float>
+        </div>
+
+        <div layout="row" layout-align="start center" layout-margin>
+            <p>片尾出现时间</p>
+            <span flex="10"></span>
+            <md-text-float label="第几秒" ng-model="chapter.video.pianweishijian">{{chapter.video.pianweishichang}}</md-text-float>
+        </div>
+
+
+        <!-- TODO: 希望能将下面的视频选择封装成Directive -->
+
+        <div layout="row" layout-align="start center" layout-margin>
+            <label>引入视频</label>
+            <span flex="10"></span>
+            <div class="btn-group" dropdown>
+                <md-button md-no-ink class="md-raised" dropdown-toggle>
+                    选择视频文件<span class="caret"></span>
+                </md-button>
+                <ul class="dropdown-menu" role="menu">
+                    <li ng-repeat="mock in mockSource"><a href="" ng-click="selectVideo(mock)">{{mock.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div layout="row" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-click="save()">保存</md-button>
+        </div>
+    </div>
+    <div flex style="height: 100%;" layout="column" layout-align="start center" layout-margin>
+        <div style="margin-top: 40px">{{chapter.video.url}}</div>
+        <video width="80%" height="80%" controls ng-src="{{chapter.video.url}}"></video>
+    </div>
+</md-content>
